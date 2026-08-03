@@ -17,7 +17,7 @@ END AS school_stage
 FROM map_data
 WHERE grade >2) m
 GROUP BY school_stage, course
-ORDER BY course, school_stage
+ORDER BY course, school_stage;
 
 /*3.2 Which subject areas demonstrate the strongest overall growth and overall achievement across the school this year?*/
 SELECT course, 
@@ -25,7 +25,7 @@ ROUND(AVG(fall_to_fall_observed_growth), 2) AS average_growth,
 ROUND(AVG(test_rit_score), 2) AS average_rit
 FROM map_data
 GROUP BY course
-ORDER BY average_rit, average_growth
+ORDER BY average_rit, average_growth;
 
 /*3.3 Which grades are showing the most/least growth and achievement this year?*/
 SELECT course, 
@@ -34,7 +34,7 @@ ROUND(AVG(fall_to_fall_observed_growth), 2) AS average_growth,
 ROUND(AVG(test_rit_score), 2) AS average_rit
 FROM map_data
 GROUP BY course, grade
-ORDER BY course, grade, average_rit, average_growth
+ORDER BY course, grade, average_rit, average_growth;
 
 /*3.4 Which grades are showing the most achievement this year? Pivoted to wide format */
 SELECT 
