@@ -28,7 +28,7 @@ SELECT student_id,
 	fall_to_fall_observed_growth AS negative_growth
 FROM map_data
 WHERE fall_to_fall_observed_growth < 0
-ORDER BY grade, course
+ORDER BY grade, course;
 	
 /*1.3 Which students are performing significantly above or below the grade median in each subject?*/
 
@@ -47,7 +47,7 @@ GROUP BY grade, course) m2
 ON m.grade = m2.grade
 AND m.course = m2.course
 WHERE ABS(m.test_rit_score - m2.test_median) > (0.10 * m2.test_median)
-ORDER BY course, grade, difference_from_median
+ORDER BY course, grade, difference_from_median;
 
 /*1.4 How many students fall into each achievement band for the current term?*/
 SELECT 
@@ -63,7 +63,7 @@ CASE WHEN achievement_quintile = 'Low' THEN 1
     WHEN achievement_quintile = 'Avg' THEN 3
     WHEN achievement_quintile = 'HiAvg' THEN 4
     WHEN achievement_quintile = 'High' THEN 5
-END
+END;
 
 /*1.5 Are there students whose performance differs significantly between subjects (e.g., strong reading but low math)?*/
 SELECT
