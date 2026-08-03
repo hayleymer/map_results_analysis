@@ -31,7 +31,7 @@ ROUND(AVG(fall_to_fall_observed_growth), 2) AS avg_growth
 FROM map_data
 WHERE grade > 2
 GROUP BY grade, course, student_gender
-ORDER BY grade, course, student_gender
+ORDER BY grade, course, student_gender;
 
 /*2.4 Which courses have the largest proportion of students meeting projected growth targets?*/
 
@@ -46,4 +46,4 @@ ROUND(COUNT(*) FILTER(WHERE fall_to_fall_met_projected_growth LIKE 'No%') * 100.
 FROM map_data
 WHERE grade > 2
 GROUP BY grade, course
-ORDER BY grade, course
+ORDER BY grade, course;
